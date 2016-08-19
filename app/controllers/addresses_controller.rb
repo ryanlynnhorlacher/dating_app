@@ -1,5 +1,6 @@
 class AddressesController < ApplicationController
-  before_action
+  before_action :person
+  before_action :address, only: [:show, :edit, :update, :destroy]
 
   def index
     @addresses = @person.addresses
@@ -49,4 +50,8 @@ class AddressesController < ApplicationController
       @person = Person.find(params[:id])
     end
 
+    def address
+      @address = @person.addresses.find(params[:id])
+
+    end
 end
