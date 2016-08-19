@@ -3,11 +3,11 @@ class AddressesController < ApplicationController
   before_action :address, only: [:show, :edit, :update, :destroy]
 
   def index
-    @addresses = @person.addresses
+    @addresses = @person.address
   end
 
   def show
-
+    @person = Person.find(params[:id])
   end
 
   def new
@@ -15,8 +15,9 @@ class AddressesController < ApplicationController
   end
 
   def create
-    @address = @person.addresses.new(address_params)
+    @address = Address.new(address_params)
     if @person.save
+      binding.pry
       redirect_to person_addresses_path(@person, @address)
     else
       render :new
@@ -24,12 +25,10 @@ class AddressesController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
-    if @address.update
+    if @address.update(address_params)
       redirect_to person_address_path(@person, @address)
     else
       render :edit
@@ -47,7 +46,7 @@ class AddressesController < ApplicationController
     end
 
     def person
-      @person = Person.find(params[:id])
+      @person = Person.find(params[:person_id])
     end
 
     def address

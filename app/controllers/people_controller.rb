@@ -28,7 +28,7 @@ class PeopleController < ApplicationController
 
   def update
 
-    if @person.update
+    if @person.update(person_params)
       redirect_to person_path(@person)
     else
       render :edit

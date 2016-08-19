@@ -1,2 +1,9 @@
-<h1>Addresses#index</h1>
-<p>Find me in app/views/addresses/index.html.erb</p>
+<h1><%= @person.name%>'s Address is:</h1>
+
+<% if @addressses.any? %>
+
+  <h3> <%= @person.address %> </h3>
+<% else %>
+  <h3> No address. Please add an address </h3>
+  <%= link_to 'Add Address', new_person_address_path(@person) %>
+<% end %>
