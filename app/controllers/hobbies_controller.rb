@@ -1,5 +1,5 @@
 class HobbiesController < ApplicationController
-  before_action :person
+  before_action :person, only: [:show, :edit, :update]
   before_action :hobby, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -29,7 +29,7 @@ class HobbiesController < ApplicationController
 
   def update
 
-    if @hobby.update
+    if @hobby.update(hobby_params)
       redirect_to person_hobby_path(@person, @hobby)
     else
       render :edit

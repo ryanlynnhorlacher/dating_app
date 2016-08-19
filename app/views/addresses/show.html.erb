@@ -1,2 +1,12 @@
-<h1>Addresses#show</h1>
-<p>Find me in app/views/addresses/show.html.erb</p>
+<h1> <%= @address.info %> </h1>
+
+<p>Street Address: <%= @address.street_address %> </p>
+<p>City: <%= @address.city %> </p>
+<p>State: <%= @address.state %> </p>
+<p>ZIP Code: <%= @address.zip %> </p>
+
+<%= link_to "Edit", edit_person_address_path(@person, @address) %>
+<br/>
+<%= link_to 'DELETE', person_address_path(@person, @address), method: :delete, data: {confirm: 'REALLY?!?!!? YOU SURE ABOUT THIS???'}%>
+<br/>
+<%= link_to 'Personal Info', person_path(@person) %>

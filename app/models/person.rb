@@ -107,7 +107,7 @@ class Person < ApplicationRecord
 		else
 			@search_result.each do |result|
 				if result[:height] > (height - 4) && result[:height] < (height + 5)
-					@search_result << result			
+					@search_result << result
 				end
 			end
 		end
@@ -133,4 +133,3 @@ class Person < ApplicationRecord
 		@search_result = []
 	end
 end
-

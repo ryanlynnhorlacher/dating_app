@@ -24,7 +24,9 @@
 </table>
 
 <%= link_to 'Edit User', edit_person_path(@person) %>
+<br/>
 <%= link_to 'Delete', person_path(@person), method: :delete %>
-
 <br />
+<%= link_to "#{@person.name}'s Address", person_addresses_path(@person) %>
+<br/>
 <%= link_to 'All People', people_path %>
