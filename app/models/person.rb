@@ -48,7 +48,7 @@ class Person < ApplicationRecord
 	end
 
 	def search_age(age)
-		Person.all.where(age: > (age - 10) AND age: < (age + 10))
+		Person.all.where(age: > (age - 5) AND age: < (age + 5))
 	end
 
 	def search_height(height)
