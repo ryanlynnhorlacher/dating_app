@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   before_action :person, only: [:show, :create, :edit, :update]
 
   def index
-    @person = Person.all
+    @people = Person.all
   end
 
   def show
