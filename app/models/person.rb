@@ -27,8 +27,6 @@ class Person < ApplicationRecord
 		Person.all.where(hair_color: color)
 	end
 
-	end
-
 	def self.hair_color
 		['blond', 'brown', 'black', 'red', 'grey', 'other']
 	end
