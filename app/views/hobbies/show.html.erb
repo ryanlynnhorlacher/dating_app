@@ -1,2 +1,27 @@
-<h1>Hobbies#show</h1>
-<p>Find me in app/views/hobbies/show.html.erb</p>
+<h1> <%= @hobbies.info %> </h1>
+
+<!-- Person ID -->
+<p> Name: <%= @hobbies.name %> </p>
+
+<!-- Description -->
+<p> Description: <%= @hobbies.description %> </p>
+
+<!-- Person ID -->
+<p> person_id: <%= @hobbies.person_id %> </p>
+
+<!-- Created at -->
+<p> created_at: <%= @hobbies.created_at %> </p>
+
+<!-- Updated at -->
+<p> updated_at: <%= @hobbies.updated_at %> </p>
+
+<br />
+  <%= f.submit %>
+<% end %>
+
+
+<!-- <br />
+  <%= f.submit %>
+<% end %> -->
+
+

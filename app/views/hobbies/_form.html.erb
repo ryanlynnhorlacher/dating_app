@@ -1,0 +1,32 @@
+<% if @hobbies.errors.any? %>
+  <ul>
+    <% @hobbies.errors.full_messages.each do |error| %>
+      <li> <%= error %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for [@person, @hobbies] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true %>
+
+  <br />
+  <%= f.label :description %>
+  <%= f.text_field :description, required: true %>
+  
+  <br />
+  <%= f.label :person_id %>
+  <%= f.text_field :person_id, required: true %>  
+
+  <br />
+  <%= f.label :created_at %>
+  <%= f.text_field :created_at, required: true %>  
+
+  <br />
+  <%= f.label :updated_at %>
+  <%= f.text_field :updated_at, required: true %>
+
+
+  <br />
+  <%= f.submit %>
+<% end %>
