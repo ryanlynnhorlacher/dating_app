@@ -18,16 +18,16 @@
 
   <br />
   <%= f.label :gender %>
-  <%= f.select :gender, ['Male','Female','Transgender'] %>
+  <%= f.select :gender, Person.gender %>
   <!-- <input type='text' name='person[gender]' /> -->
 
   <br />
   <%= f.label :hair_color %>
-  <%= f.select :hair_color, [9,0] %>
+  <%= f.select :hair_color, Person.hair_color %>
 
   <br />
   <%= f.label :eye_color %>
-  <%= f.select :eye_color, [3,5] %>
+  <%= f.select :eye_color, Person.eye_color %>
 
   <br />
   <%= f.label :weight %>

@@ -41,6 +41,10 @@ class PeopleController < ApplicationController
     redirect_to peoples_path
   end
 
+  def search
+    @person = Person.new
+  end
+
   private
     def person_params
       params.require(:person).permit(:name, :gender, :hair_color, :eye_color, :age, :weight, :height)
