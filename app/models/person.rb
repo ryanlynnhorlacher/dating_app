@@ -5,6 +5,7 @@ class Person < ApplicationRecord
 	validates_presence_of :name, :age, :gender
 
 	@users = People.all
+	@search_result = []
 	def user(user_info)
 		@user = user_info
 	end
@@ -24,7 +25,19 @@ class Person < ApplicationRecord
 	end
 
 	def search_hair(color)
-		Person.all.where(hair_color: color)
+		if @search_result.empty?
+			new_search = Person.all.where(hair_color: color)
+			new_search.each do |result|
+				@search_result << result
+			end
+		else
+			@search_result.each do |result|
+				if result[:hair_color] == color
+					@search_result << result
+				end
+			end
+		end
+
 	end
 
 	def self.hair_color
@@ -32,7 +45,18 @@ class Person < ApplicationRecord
 	end
 
 	def search_eye(color)
-		Person.all.where(eye_color: color)
+		if @search_result.empty?
+			new_search = Person.all.where(eye_color: color)
+			new_search.each do |result|
+				@search_result << result
+			end
+		else
+			@search_result.each do |result|
+				if result[:eye_color] == color
+					@search_result << result
+				end
+			end
+		end
 	end
 
 	def self.eye_color
@@ -40,7 +64,18 @@ class Person < ApplicationRecord
 	end
 
 	def search_gender(gender)
-		Person.all.where(gender: gender)
+		if @search_result.empty?
+			new_search = Person.all.where(gender: gender)
+			new_search.each do |result|
+				@search_result << result
+			end
+		else
+			@search_result.each do |result|
+				if result[:gender] == gender
+					@search_result << result
+				end
+			end
+		end
 	end
 
 	def self.gender
@@ -48,14 +83,50 @@ class Person < ApplicationRecord
 	end
 
 	def search_age(age)
-		Person.all.where(age: > (age - 5) AND age: < (age + 5))
+		if @search_result.empty?
+			new_search = Person.all.where(age: > (age - 5) AND age: < (age + 5))
+			new_search.each do |result|
+				@search_result << result
+			end
+		else
+			@search_result.each do |result|
+				if result[:age] > (age - 5) && result[:age] < (age + 5)
+					@search_result << result
+				end
+			end
+		end
 	end
 
 	def search_height(height)
-		Person.all.where(height: > (height - 4) AND height: < (height + 4))
+		if @search_result.empty?
+			new_search = Person.all.where(height: > (height - 4) AND height: < (height + 4))
+			new_search.each do |result|
+				@search_result << result
+			end
+		else
+			@search_result.each do |result|
+				if result[:height] > (height - 4) && result[:height] < (height + 5)
+					@search_result << result
+				end
+			end
+		end
 	end
 
 	def search_weight(weight)
-		Person.all.where(weight: > (weight - 20) AND weight: < (height + 20))
+		if @search_result.empty?
+			new_search = Person.all.where(weight: > (weight - 20) AND weight: < (height + 20))
+			new_search.each do |result|
+				@search_result << result
+			end
+		else
+			@search_result.each do |result|
+				if result[:weight] > (weight - 20) && result[:weight] < (weight + 5)
+					@search_result << result
+				end
+			end
+		end
 	end
+
+	def clear_search
+		@search_result = []
 end
