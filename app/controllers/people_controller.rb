@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  before_action :person, only: [:show, :create, :edit, :update]
+  before_action :person, only: [:show, :edit, :update]
 
   def index
     @people = Person.all

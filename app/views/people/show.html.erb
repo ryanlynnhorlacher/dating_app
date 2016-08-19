@@ -15,7 +15,6 @@
     <tr>
       <td> <%= @person.age %> </td>
       <td> <%= @person.gender %> </td>
-      <td> <%= @person.alive %> </td>
       <td> <%= @person.hair_color %> </td>
       <td> <%= @person.eye_color %> </td>
       <td> <%= @person.weight %> </td>
@@ -26,7 +25,6 @@
 
 <%= link_to 'Edit User', edit_person_path(@person) %>
 <%= link_to 'Delete', person_path(@person), method: :delete %>
-<%= link_to "#{@person.name.pluralize} Cars", person_cars_path(@person) %>
 
 <br />
 <%= link_to 'All People', people_path %>

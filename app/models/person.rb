@@ -59,4 +59,3 @@ class Person < ApplicationRecord
 		Person.all.where(weight: > (weight - 20) AND weight: < (height + 20))
 	end
 end
-
