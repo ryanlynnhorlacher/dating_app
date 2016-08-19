@@ -1,0 +1,43 @@
+<% if @person.errors.any? %>
+  <ul>
+    <% @person.errors.full_messages.each do |error| %>
+      <li> <%= error %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @person do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <!-- <input type='text' name='person[name]' /> -->
+
+  <br />
+  <%= f.label :age %>
+  <%= f.number_field :age %>
+  <!-- <input type='number' name='person[age]' /> -->
+
+  <br />
+  <%= f.label :gender %>
+  <%= f.text_field :gender %>
+  <!-- <input type='text' name='person[gender]' /> -->
+
+  <br />
+  <%= f.label :hair_color %>
+  <%= f.text_field :hair_color %>
+
+  <br />
+  <%= f.label :eye_color %>
+  <%= f.text_field :eye_color %>
+
+  <br />
+  <%= f.label :weight %>
+  <%= f.number_field :weight %>
+
+  <br />
+  <%= f.label :height %>
+  <%= f.text_field :height %>  
+
+
+  <br />
+  <%= f.submit %>
+<% end %>
