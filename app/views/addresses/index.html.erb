@@ -1,8 +1,8 @@
 <h1><%= @person.name%>'s Address is:</h1>
 
-<% if @addressses.any? %>
+<% if @address.blank? %>
 
-  <h3> <%= @person.address %> </h3>
+  <h3> <%= @address.city %> </h3>
 <% else %>
   <h3> No address. Please add an address </h3>
   <%= link_to 'Add Address', new_person_address_path(@person) %>

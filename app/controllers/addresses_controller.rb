@@ -3,11 +3,10 @@ class AddressesController < ApplicationController
   before_action :address, only: [:show, :edit, :update, :destroy]
 
   def index
-    @addresses = @person.address
+    @address = @person.address
   end
 
   def show
-    @person = Person.find(params[:id])
   end
 
   def new
@@ -17,7 +16,6 @@ class AddressesController < ApplicationController
   def create
     @address = Address.new(address_params)
     if @person.save
-      binding.pry
       redirect_to person_addresses_path(@person, @address)
     else
       render :new
