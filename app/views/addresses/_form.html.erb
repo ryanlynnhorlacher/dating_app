@@ -1,4 +1,4 @@
-<% if @address.error.any? %>
+<% if @address.errors.any? %>
   <ul>
     <% @person.address.errors.full_messages.each do |error| %>
       <li> <%= error %> </li>
