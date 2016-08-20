@@ -42,7 +42,7 @@ class PeopleController < ApplicationController
   end
 
   def search
-    @person = Person.new
+    @people = Person.search(params[:name], params[:age], params[:gender], params[:eye_color], params[:hair_color], params[:weight], params[:height])
   end
 
   private

@@ -1,3 +1,30 @@
 <h1>Search</h1>
 
-<%= render(partial: 'form') %>
+<%= form_tag("/search", method: "get") do %>
+	<%= label_tag(:name, "Name") %>
+	<%= text_field_tag :name, params[:name] %>
+	<%= label_tag(:age, "Age") %>
+	<%= number_field_tag :age, params[:age] %>
+	<%= label_tag(:age, "Gender") %>
+	<%= text_field_tag :gender, params[:gender] %>
+	<%= label_tag(:age, "Eye Color") %>
+	<%= text_field_tag :eye_color, params[:eye_color] %>
+	<%= label_tag(:age, "Hair Color") %>
+	<%= text_field_tag :hair_color, params[:hair_color] %>
+	<%= label_tag(:age, "Weight") %>
+	<%= number_field_tag :weight, params[:weight] %>
+	<%= label_tag(:age, "Height (inches)") %>
+	<%= number_field_tag :height, params[:height] %>
+	<%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<% if @people%>
+	<% @people.each do |person| %>
+	<%= person.name %>
+	<br>
+	<% end %>
+<% else %>
+	<h3>There are no results matching your search.</h3>
+<% end %>
+
+<%= link_to 'All people', root_path %>

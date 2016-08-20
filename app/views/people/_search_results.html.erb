@@ -1,0 +1,14 @@
+<% if @search.any? %>
+ <ul>
+   <% @search.each do |result| %>
+     <li>
+      <%= link_to result.name, person_path(result) %>
+     </li>
+   <% end %>
+ </ul>
+
+<% else %>
+  <p> No search results </p>
+  
+  <!-- Empty array, no people in DB -->
+<% end %>
