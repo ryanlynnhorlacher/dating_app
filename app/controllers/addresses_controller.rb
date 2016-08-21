@@ -14,7 +14,7 @@ class AddressesController < ApplicationController
   end
 
   def create
-    @address = Address.new(address_params)
+    @address = @person.address = Address.new(address_params)
     if @address.save
       redirect_to person_addresses_path(@person, @address)
     else
@@ -35,12 +35,12 @@ class AddressesController < ApplicationController
 
   def destroy
     @address.destroy
-    redirect_to person_address_path(@person, @address)
+    redirect_to person_addresses_path(@person)
   end
 
   private
     def address_params
-      params.require(:address).permit(:street_address, :city, :state, :zip)
+      params.require(:address).permit(:street_address, :city, :state, :zip, :person_id)
     end
 
     def person
@@ -48,7 +48,6 @@ class AddressesController < ApplicationController
     end
 
     def address
-      @address = @person.addresses.find(params[:id])
-
+      @address = @person.address
     end
 end

@@ -1,5 +1,5 @@
 class PeopleController < ApplicationController
-  before_action :person, only: [:show, :edit, :update]
+  before_action :person, only: [:show, :edit, :update, :destroy]
 
   def index
     @people = Person.all
@@ -38,7 +38,7 @@ class PeopleController < ApplicationController
   def destroy
 
     @person.destroy
-    redirect_to peoples_path
+    redirect_to people_path
   end
 
   def search

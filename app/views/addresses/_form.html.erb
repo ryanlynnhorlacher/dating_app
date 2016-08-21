@@ -1,13 +1,6 @@
-<% if @person.address.errors.blank? %>
-  <ul>
-    <% @person.address.errors.full_messages.each do |error| %>
-      <li> <%= error %> </li>
-    <% end %>
-  </ul>
-<% end %>
+
 
 <%= form_for [@person, @address] do |f| %>
-<% binding.pry %>
   <%= f.label :street_address %>
   <%= f.text_field :street_address, required: true %>
 
@@ -18,7 +11,7 @@
   <%= f.select :state, %w(AK AL AR AZ CA CO CT DC DE FL GA HI IA ID IL IN KS KY LA MA MD ME MI MN MO MS MT NC ND NE NH NJ NM NV NY OH OK OR PA RI SC SD TN TX UT VA VT WA WI WV WY), required: true %>
 
   <%= f.label :zip %>
-  <%= f.text_field :zip, required: true %>
+  <%= f.number_field :zip, required: true %>
 
   <%= f.submit %>
 <% end %>

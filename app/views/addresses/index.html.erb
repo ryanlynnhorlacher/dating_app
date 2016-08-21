@@ -7,4 +7,7 @@
    <h3> <%= @address.street_address %> </h3>
    <h3> <%= @address.city + ", " + @address.state %>
    <h3> <%= @address.zip %> </h3>
+   <%= link_to "Edit Address", edit_person_address_path(@person, @address) %>
 <% end %>
+
+
