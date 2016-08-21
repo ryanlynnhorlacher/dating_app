@@ -51,7 +51,7 @@ class Person < ApplicationRecord
 
 
 	def self.gender
-		['female', 'male']
+		['female', 'male', 'transgender']
 	end
 end
 
