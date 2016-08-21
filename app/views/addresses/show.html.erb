@@ -1,12 +1,16 @@
-<h1> Address for <%= @person.name %> </h1>
+<h1><%= @person.name%>'s Address is:</h1>
 
-<p>Street Address: <%= @address.street_address %> </p>
-<p>City: <%= @address.city %> </p>
-<p>State: <%= @address.state %> </p>
-<p>ZIP Code: <%= @address.zip %> </p>
+<% if @address.blank? %>
+<h3> No address. Please add an address </h3>
+  <%= link_to 'Add Address', new_person_address_path(@person) %>
+<% else %>
+   <h3> <%= @address.street_address %> </h3>
+   <h3> <%= @address.city + ", " + @address.state %>
+   <h3> <%= @address.zip %> </h3>
 
 <%= link_to "Edit", edit_person_address_path(@person, @address) %>
 <br/>
 <%= link_to 'DELETE', person_address_path(@person, @address), method: :delete, data: {confirm: 'REALLY?!?!!? YOU SURE ABOUT THIS???'}%>
+<% end %>
 <br/>
 <%= link_to 'Personal Info', person_path(@person) %>
