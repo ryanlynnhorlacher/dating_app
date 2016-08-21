@@ -1,4 +1,4 @@
-<% if @address.errors.any? %>
+<% if @person.address.errors.blank? %>
   <ul>
     <% @person.address.errors.full_messages.each do |error| %>
       <li> <%= error %> </li>
@@ -7,6 +7,7 @@
 <% end %>
 
 <%= form_for [@person, @address] do |f| %>
+<% binding.pry %>
   <%= f.label :street_address %>
   <%= f.text_field :street_address, required: true %>
 

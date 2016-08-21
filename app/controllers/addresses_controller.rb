@@ -15,7 +15,7 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
-    if @person.save
+    if @address.save
       redirect_to person_addresses_path(@person, @address)
     else
       render :new
