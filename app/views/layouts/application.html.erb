@@ -9,6 +9,14 @@
   </head>
 
   <body>
-    <%= yield %>
-  </body>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <header class="navbar">
+    <%= link_to 'Home', root_path %> |
+    <%= link_to 'Search', search_path %>
+  </header>
+<%= yield %>
+
+</body>
 </html>

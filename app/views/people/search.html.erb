@@ -3,18 +3,25 @@
 <%= form_tag("/search", method: "get") do %>
 	<%= label_tag(:name, "Name") %>
 	<%= text_field_tag :name, params[:name] %>
+	<br/>
 	<%= label_tag(:age, "Age") %>
 	<%= number_field_tag :age, params[:age] %>
+	<br/>
 	<%= label_tag(:age, "Gender") %>
 	<%= text_field_tag :gender, params[:gender] %>
+	<br/>
 	<%= label_tag(:age, "Eye Color") %>
 	<%= text_field_tag :eye_color, params[:eye_color] %>
+	<br/>
 	<%= label_tag(:age, "Hair Color") %>
 	<%= text_field_tag :hair_color, params[:hair_color] %>
+	<br/>
 	<%= label_tag(:age, "Weight") %>
 	<%= number_field_tag :weight, params[:weight] %>
+	<br/>
 	<%= label_tag(:age, "Height (inches)") %>
 	<%= number_field_tag :height, params[:height] %>
+	<br/>
 	<%= submit_tag "Search", :name => nil %>
 <% end %>
 

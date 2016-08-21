@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+
+html {
+  color: white;
+}
+
+a {color:white; }
+a:visited { text-decoration: none; }
+/*a:hover { text-decoration: none; }*/
+a:focus { text-decoration: none; }
+a:hover, a:active { text-decoration: none; }
+
+body {
+  background-color: lightpink;
+  text-align: center;
+  float: center;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+ul {
+  list-style-type: none;
+  text-decoration: none;
+  padding-left: 0;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  background-color: lightblue;
+  width: 100%;
+  height: 4%;
+  font-size: 24px;
+}
