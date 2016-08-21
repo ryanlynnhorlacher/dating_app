@@ -3,8 +3,8 @@
 <% if @hobbies.any? %>
   <!-- loop the Hobbies and display them -->
   <ul>
-    <% @hobbies.each do |hobbies| %>
-      <li class='car-info-text'> <%= car.info %> - <%= link_to 'Show', person_car_path(@person, car) %> </li>
+    <% @hobbies.each do |hobby| %>
+      <li> <%= hobby.name %> - <%= link_to 'Show', person_hobby_path(@person, hobby) %> <%= link_to 'delete', person_hobby_path(@person, hobby), method: :delete %></li>
     <% end %>
   </ul>
 <% else %>

@@ -1,5 +1,5 @@
 class HobbiesController < ApplicationController
-  before_action :person, only: [:show, :edit, :update]
+  before_action :person
   before_action :hobby, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -38,7 +38,7 @@ class HobbiesController < ApplicationController
 
   def destroy
     @hobby.destroy
-    redirect_to person_hobby_path(@person, @hobby)
+    redirect_to person_hobbies_path(@person)
   end
 
   private
@@ -47,7 +47,7 @@ class HobbiesController < ApplicationController
     end
 
     def person
-      @person = Person.find(params[:id])
+      @person = Person.find(params[:person_id])
     end
 
     def hobby

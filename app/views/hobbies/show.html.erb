@@ -1,27 +1,9 @@
-<h1> <%= @hobbies.info %> </h1>
-
-<!-- Person ID -->
-<p> Name: <%= @hobbies.name %> </p>
+<h1> <%= @hobby.name %> </h1>
 
 <!-- Description -->
-<p> Description: <%= @hobbies.description %> </p>
+<p> Description: <%= @hobby.description %> </p>
 
-<!-- Person ID -->
-<p> person_id: <%= @hobbies.person_id %> </p>
-
-<!-- Created at -->
-<p> created_at: <%= @hobbies.created_at %> </p>
-
-<!-- Updated at -->
-<p> updated_at: <%= @hobbies.updated_at %> </p>
-
-<br />
-  <%= f.submit %>
-<% end %>
-
-
-<!-- <br />
-  <%= f.submit %>
-<% end %> -->
-
+<%= link_to "Edit" , edit_person_hobby_path(@person, @hobby) %>
+<br>
+<%= link_to "All hobbies", person_hobbies_path(@person) %>
 
