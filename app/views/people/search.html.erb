@@ -18,10 +18,12 @@
 	<%= submit_tag "Search", :name => nil %>
 <% end %>
 
-<% if @people%>
+<% if @people!= nil%>
 	<% @people.each do |person| %>
-	<%= person.name %>
-	<br>
+		<% person.each do |record| %>
+			<%= record.name %>
+		<br>
+		<% end %>
 	<% end %>
 <% else %>
 	<h3>There are no results matching your search.</h3>
