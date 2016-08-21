@@ -4,7 +4,7 @@
   <!-- loop the Hobbies and display them -->
   <ul>
     <% @hobbies.each do |hobby| %>
-      <li> <%= hobby.name %> - <%= link_to 'Show', person_hobby_path(@person, hobby) %> <%= link_to 'delete', person_hobby_path(@person, hobby), method: :delete %></li>
+      <li> <%= hobby.name %> - <%= link_to 'Show', person_hobby_path(@person, hobby) %> <%= link_to 'delete', person_hobby_path(@person, hobby), method: :delete, data: {confirm: 'REALLY?!?!!? YOU SURE ABOUT THIS???'} %></li>
     <% end %>
   </ul>
 <% else %>
@@ -13,3 +13,4 @@
 <% end %>
 
 <%= link_to 'New Hobbies', new_person_hobby_path(@person) %>
+<%= link_to 'Person profile', person_path(@person) %>
