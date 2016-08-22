@@ -4,7 +4,7 @@
 <p> Description: <%= @hobby.description %> </p>
 <% if @person == Person.user %>
 	<%= link_to "Edit" , edit_person_hobby_path(@person, @hobby) %>
-	<%= link_to 'Delete', person_hobby_path(@person, @hobby), method: :delete, data: {confirm: 'REALLY?!?!!? YOU SURE ABOUT THIS???'} %>
+	<%= link_to 'Delete', person_hobby_path(@person, @hobby), method: :delete, data: {confirm: 'Are You Sure?'} %>
 <% end %>
 <br>
 <%= link_to "All hobbies", person_hobbies_path(@person) %>

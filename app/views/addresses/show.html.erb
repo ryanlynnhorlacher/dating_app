@@ -10,7 +10,7 @@
 <% if @person == Person.user %>
 	<%= link_to "Edit", edit_person_address_path(@person, @address) %>
 	<br/>
-	<%= link_to 'DELETE', person_address_path(@person, @address), method: :delete, data: {confirm: 'REALLY?!?!!? YOU SURE ABOUT THIS???'}%>
+	<%= link_to 'DELETE', person_address_path(@person, @address), method: :delete, data: {confirm: 'Are You Sure?'}%>
 	<% end %>
 <% end %>
 <br/>

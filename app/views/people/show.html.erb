@@ -33,5 +33,5 @@
 <% if Person.user == @person %>
 <%= link_to 'Edit', edit_person_path(@person) %>
 
-<%= link_to 'Delete', person_path(@person), method: :delete, data: {confirm: 'REALLY?!?!!? YOU SURE ABOUT THIS???'} %>
+<%= link_to 'Delete', person_path(@person), method: :delete, data: {confirm: 'Are You Sure?'} %>
 <% end %>

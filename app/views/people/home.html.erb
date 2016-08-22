@@ -22,7 +22,7 @@
 <% else %>
 <h2> Welcome <%= @user.name %>! </h2>
 <div>Personal profile options:</div>
-<%= link_to 'Edit', edit_person_path(@user) %> <%= link_to 'Delete', person_path(@user), method: :delete, data: {confirm: 'REALLY?!?!!? YOU SURE ABOUT THIS???'} %> <%= link_to 'Vew profile', person_path(@user) %>
+<%= link_to 'Edit', edit_person_path(@user) %> <%= link_to 'Delete', person_path(@user), method: :delete, data: {confirm: 'Are You Sure?'} %> <%= link_to 'Vew profile', person_path(@user) %>
 <h3>Who would you like to view?</h3>
 
 <% if @people.any? %>
