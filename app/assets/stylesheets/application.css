@@ -15,10 +15,10 @@
  */
 
 html {
-  color: white;
+  color: black;
 }
 
-a {color:white; }
+a {color: black; }
 a:visited { text-decoration: none; }
 /*a:hover { text-decoration: none; }*/
 a:focus { text-decoration: none; }
