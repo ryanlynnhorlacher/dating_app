@@ -1,0 +1,42 @@
+<h1>Welcome to our dating site!</h1>
+
+<% if @user.blank? %>
+
+<h2> Please tell us who you are. </h2>
+
+<% if @people.any? %>
+ <ul>
+   <% @people.each do |person| %>
+     <li>
+      <%= link_to person.name, set_user_person_path(person) %>
+     </li>
+   <% end %>
+ </ul>
+
+<% else %>
+  <p> Nobody is here, create a person: </p>
+  
+  <!-- Empty array, no people in DB -->
+<% end %>
+
+<% else %>
+<h2> Welcome <%= @user.name %> </h2>
+<h3>Who would you like to view?</h3>
+
+<% if @people.any? %>
+ <ul>
+   <% @people.each do |person| %>
+     <li>
+      <%= link_to person.name, people_path %>
+     </li>
+   <% end %>
+ </ul>
+
+<% else %>
+  <p> Nobody is here, create a person: </p>
+  
+  <!-- Empty array, no people in DB -->
+<% end %>
+<% end %>
+
+<%= link_to 'Create Person', new_person_path %>

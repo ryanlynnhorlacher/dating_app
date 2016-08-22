@@ -1,6 +1,16 @@
 class PeopleController < ApplicationController
   before_action :person, only: [:show, :edit, :update, :destroy]
 
+  def home
+    @people = Person.all
+    @user = Person.user
+  end
+
+  def set_user
+    @user = Person.set_user(params[:id])
+    redirect_to root_path
+  end
+
   def index
     @people = Person.all
   end

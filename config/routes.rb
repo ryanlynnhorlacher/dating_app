@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
-  root to: 'people#index'
+
+  root to: 'people#home'
+
+  resources :people do 
+    member do
+      get 'set_user'
+    end
+  end
 
   get '/search', to: 'people#search'
+
 
   resources :people do
     resources :addresses

@@ -5,6 +5,7 @@ class Person < ApplicationRecord
     validates_presence_of :name, :age, :gender
 
     @search_results = []
+    @@user = ''
 
     def self.search(name, age, gender, eye_color, hair_color, weight, height)
         @search_results = []
@@ -45,15 +46,36 @@ class Person < ApplicationRecord
     end
 
     def self.hair_color
-        ['blond', 'brown', 'black', 'red', 'grey', 'other']
+        ['unspecified', 'blond', 'brown', 'black', 'red', 'grey', 'other']
     end
 
     def self.eye_color
-        ['blue', 'hazel', 'brown', 'grey', 'green', 'cat']
+        ['unspecified', 'blue', 'hazel', 'brown', 'grey', 'green', 'cat']
     end
 
 
     def self.gender
         ['female', 'male']
     end
+
+    def self.set_user(id)
+    @@user = Person.find(id) if id.blank? == false
+    end
+
+    def self.set_user(id)
+        if id.blank?
+            @@user
+        else
+            @@user = Person.find(id)
+        end
+    end
+
+    def self.user
+        @@user
+    end
+
+
+
+
+
 end
