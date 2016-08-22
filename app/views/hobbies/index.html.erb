@@ -4,13 +4,19 @@
   <!-- loop the Hobbies and display them -->
   <ul>
     <% @hobbies.each do |hobby| %>
-      <li> <%= hobby.name %> - <%= link_to 'Show', person_hobby_path(@person, hobby) %> <%= link_to 'delete', person_hobby_path(@person, hobby), method: :delete, data: {confirm: 'REALLY?!?!!? YOU SURE ABOUT THIS???'} %></li>
+      <li> <%= hobby.name %> - <%= link_to 'Description', person_hobby_path(@person, hobby) %> 
+      <% if @person == Person.user %>
+      	<%= link_to 'Delete', person_hobby_path(@person, hobby), method: :delete, data: {confirm: 'REALLY?!?!!? YOU SURE ABOUT THIS???'} %>
+      	<%= link_to 'Edit', edit_person_hobby_path(@person, hobby) %>
+      	</li>
+      <% end %>
     <% end %>
   </ul>
 <% else %>
   <!-- display no hobbies message -->
-  <h3>No hobbies, Please Create One.</h3>
+  <h3>No hobbies listed</h3>
 <% end %>
-
-<%= link_to 'New Hobbies', new_person_hobby_path(@person) %>
-<%= link_to 'Person profile', person_path(@person) %>
+<% if @person == Person.user %>
+	<%= link_to 'New hobby', new_person_hobby_path(@person) %>
+<% end %>
+<%= link_to  'Full profile', person_path(@person) %>

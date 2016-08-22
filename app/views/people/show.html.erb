@@ -29,10 +29,9 @@
 <%= link_to "#{@person.name}'s hobbies", person_hobbies_path(@person) %>
 <br/>
 <%= link_to 'All People', people_path %>
-
+<br><br>
 <% if Person.user == @person %>
-<%= link_to 'Edit User', edit_person_path(@person) %>
-<br/>
+<%= link_to 'Edit', edit_person_path(@person) %>
+
 <%= link_to 'Delete', person_path(@person), method: :delete, data: {confirm: 'REALLY?!?!!? YOU SURE ABOUT THIS???'} %>
-<br />
 <% end %>

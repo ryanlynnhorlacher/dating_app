@@ -3,18 +3,15 @@
 <% if @people.any? %>
  <ul>
    <% @people.each do |person| %>
-     <li>
-      <%= link_to person.name, person_path(person) %>
-     </li>
+   	<% if person != Person.user %>
+     	<li>
+      	<%= link_to person.name, person_path(person) %>
+     	</li>
+   	<% end %>
    <% end %>
  </ul>
 
 <% else %>
   <p> Nobody is here, create a person: </p>
   
-  <!-- Empty array, no people in DB -->
 <% end %>
-
-<%= link_to 'Search', search_path %>
-
-<%= link_to 'Create Person', new_person_path %>

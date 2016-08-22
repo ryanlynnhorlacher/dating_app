@@ -20,23 +20,29 @@
 <% end %>
 
 <% else %>
-<h2> Welcome <%= @user.name %> </h2>
+<h2> Welcome <%= @user.name %>! </h2>
+<div>Personal profile options:</div>
+<%= link_to 'Edit', edit_person_path(@user) %> <%= link_to 'Delete', person_path(@user), method: :delete, data: {confirm: 'REALLY?!?!!? YOU SURE ABOUT THIS???'} %> <%= link_to 'Vew profile', person_path(@user) %>
 <h3>Who would you like to view?</h3>
 
 <% if @people.any? %>
  <ul>
    <% @people.each do |person| %>
+      <% if person != Person.user %>
      <li>
-      <%= link_to person.name, people_path %>
+      <%= link_to person.name, person_path(person) %>
      </li>
-   <% end %>
+    <% end %>
+  <% end %>
  </ul>
 
+<%= link_to 'Switch Profile', switch_path %> 
+
 <% else %>
-  <p> Nobody is here, create a person: </p>
+  <p> Nobody is here, create a profile!: </p>
   
   <!-- Empty array, no people in DB -->
 <% end %>
 <% end %>
 
-<%= link_to 'Create Person', new_person_path %>
+<%= link_to 'Create Profile', new_person_path %>

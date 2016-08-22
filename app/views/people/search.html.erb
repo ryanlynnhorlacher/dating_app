@@ -25,15 +25,15 @@
 	<%= submit_tag "Search", :name => nil %>
 <% end %>
 
-<% if @people!= nil%>
-	<% @people.each do |person| %>
-		<% person.each do |record| %>
-			<%= record.name %>
+
+<% if @search.empty? == false %>
+	<% @search.each do |result| %>
+		<% if result != Person.user %>
+		<%= link_to result.name, person_path(result)%>
 		<br>
 		<% end %>
 	<% end %>
-<% else %>
-	<h3>There are no results matching your search.</h3>
+	<% @search = [] %>
 <% end %>
 
-<%= link_to 'All people', root_path %>
+<%= link_to 'All people', people_path %>

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/switch', to: 'people#switch'
+
   get '/search', to: 'people#search'
 
 
