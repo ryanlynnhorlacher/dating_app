@@ -55,7 +55,7 @@ class Person < ApplicationRecord
 
 
     def self.gender
-        ['female', 'male']
+        ['female', 'male', 'transgender']
     end
 
     def self.set_user(id)
