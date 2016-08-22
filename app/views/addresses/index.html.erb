@@ -1,8 +1,10 @@
 <h1><%= @person.name%>'s Address is:</h1>
 
 <% if @address.blank? %>
-<h3> No address. Please add an address </h3>
-  <%= link_to 'Add Address', new_person_address_path(@person) %>
+	<h3> No address listed</h3>
+	<% if @person == Person.user %>
+  		<%= link_to 'Add Address', new_person_address_path(@person) %>
+  	<% end %>
 <% else %>
    <h3> <%= @address.street_address %> </h3>
    <h3> <%= @address.city + ", " + @address.state %>
