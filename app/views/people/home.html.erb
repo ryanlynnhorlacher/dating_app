@@ -1,4 +1,4 @@
-<h1>Welcome to our dating site!</h1>
+<h1 class="z-depth-1 col s12 center-align">Find true love!</h1>
 
 <% if @user.blank? %>
 
@@ -20,9 +20,11 @@
 <% end %>
 
 <% else %>
-<h2> Welcome <%= @user.name %>! </h2>
+<row class='row'>
+<h2 class='col s12 m'> Welcome <%= @user.name %>! </h2>
 <div>Personal profile options:</div>
-<%= link_to 'Edit', edit_person_path(@user) %> <%= link_to 'Delete', person_path(@user), method: :delete, data: {confirm: 'Are You Sure?'} %> <%= link_to 'Vew profile', person_path(@user) %>
+<%= link_to 'Edit', edit_person_path(@user) %> <%= link_to 'Delete', person_path(@user), method: :delete, data: {confirm: 'Are You Sure?'} %> <%= link_to 'View profile', person_path(@user) %>
+</div>
 <h3>Who would you like to view?</h3>
 
 <% if @people.any? %>

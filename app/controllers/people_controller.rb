@@ -53,12 +53,13 @@ class PeopleController < ApplicationController
 
   def destroy
     @person.destroy
-    redirect_to people_path
+    @user = Person.reset_user
+    redirect_to root_path
   end
 
   def search
     @people = Person.all
-    @search = Person.search(params[:name], params[:age], params[:gender], params[:eye_color], params[:hair_color], params[:weight], params[:height])
+    @search = Person.search(params[:name], params[:age], params[:eye_color], params[:hair_color], params[:weight], params[:height])
   end
 
   private

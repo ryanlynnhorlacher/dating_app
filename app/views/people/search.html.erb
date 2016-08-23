@@ -1,39 +1,51 @@
-<h1>Search</h1>
+<h1 class="center-align">Search</h1>
+<div class="container">
+	<%= form_tag("/search", method: "get") do %>
+		<div class='row'>
+			<div class='input-field col s12 m4' ><%= label_tag(:name, "Name") %>
+				<%= text_field_tag :name, params[:name] %> </div>
+				<br/>
+			<div class='input-field col s12 m4' ><%= label_tag(:age, "Age") %>
+				<%= number_field_tag :age, params[:age] %> </div>
+				<br/>
+			<div class='input-field col s12 m4' ><%= label_tag(:weight, "Weight") %>
+				<%= number_field_tag :weight, params[:weight] %> </div>
+				<br/>
+			<div class='input-field col s12 m4' ><%= label_tag(:height, "Height (inches)") %>
+				<%= number_field_tag :height, params[:height] %> </div>
+				<br/>
+			<div class='input-field col s12 m4' ><%= label_tag(:eye_color, "Eye Color") %>
+				<%= text_field_tag :eye_color, params[:height]%> </div>
+				<br/>
+			<div class='input-field col s12 m4' ><%= label_tag(:hair_color, "Hair Color") %>
+				<%= text_field_tag :hair_color, params[:hair_color] %> </div>
+				<br/>
+			<div class='col s12'> <%= submit_tag "Search", class: 'btn' %> </div>
 
-<%= form_tag("/search", method: "get") do %>
-	<%= label_tag(:name, "Name") %>
-	<%= text_field_tag :name, params[:name] %>
-	<br/>
-	<%= label_tag(:age, "Age") %>
-	<%= number_field_tag :age, params[:age] %>
-	<br/>
-	<%= label_tag(:gender, "Gender") %>
-	<%= text_field_tag :gender, params[:gender] %>
-	<br/>
-	<%= label_tag(:eye_color, "Eye Color") %>
-	<%= text_field_tag :eye_color, params[:eye_color] %>
-	<br/>
-	<%= label_tag(:hair_color, "Hair Color") %>
-	<%= text_field_tag :hair_color, params[:hair_color] %>
-	<br/>
-	<%= label_tag(:weight, "Weight") %>
-	<%= number_field_tag :weight, params[:weight] %>
-	<br/>
-	<%= label_tag(:height, "Height (inches)") %>
-	<%= number_field_tag :height, params[:height] %>
-	<br/>
-	<%= submit_tag "Search", :name => nil %>
-<% end %>
-
-
-<% if @search.empty? == false %>
-	<% @search.each do |result| %>
-		<% if result != Person.user %>
-		<%= link_to result.name, person_path(result)%>
-		<br>
-		<% end %>
+		</div>
 	<% end %>
-	<% @search = [] %>
+</div>
+<br>
+
+<div class='center-align'>
+<% if Person.user.blank? == false %>
+	<% if @search.empty? == false %>
+	<h3>Your search results:</h3>
+		<div class='row'>
+		<% @search.each do |result| %>
+			<% if result != Person.user && Person.user.gender != result.gender %>
+			<span class="card-panel hoverable col s12 m4 l3 center-align" >
+			<%= link_to result.name, person_path(result)%>
+			</span>
+			<% end %>
+		<% end %>
+		</div>
+		<% @search = [] %>
+	<% end %>
+	<% else %>
+		<h5>Choose or create a profile to see results!</h5>
 <% end %>
 
 <%= link_to 'All people', people_path %>
+</div>
+

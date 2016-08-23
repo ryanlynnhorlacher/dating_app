@@ -7,39 +7,64 @@
 <% end %>
 
 <%= form_for @person do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <!-- <input type='text' name='person[name]' /> -->
+  <div class='input-field'>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
 
   <br />
-  <%= f.label :age %>
-  <%= f.number_field :age %>
-  <!-- <input type='number' name='person[age]' /> -->
+
+  <div class='input-field'>
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+  </div>
 
   <br />
-  <%= f.label :gender %>
-  <%= f.select :gender, Person.gender %>
-  <!-- <input type='text' name='person[gender]' /> -->
 
-  <br />
-  <%= f.label :hair_color %>
-  <%= f.select :hair_color, Person.hair_color %>
-
-  <br />
-  <%= f.label :eye_color %>
-  <%= f.select :eye_color, Person.eye_color %>
-
-  <br />
+  <div class='input-field'>
   <%= f.label :weight %>
   <%= f.number_field :weight %>
+  </div>
 
   <br />
-  <%= f.label :height %>
-  <%= f.number_field :height %>  
 
+  <div class='input-field'>
+    <%= f.label :height %>
+    <%= f.number_field :height %> 
+  </div>
+
+  <br>
+
+  <div class='input-field'>
+    <%= f.label :gender, class: 'active' %>
+    <%= f.select :gender, Person.gender, {}, {}%>
+  </div>
 
   <br />
-  <%= f.submit %>
+
+  <div class='input-field'>
+    <%= f.label :hair_color, class: 'active' %>
+    <%= f.select :hair_color, Person.hair_color, {}, {} %>
+  </div>
+
+  <br />
+
+  <div class='input-field'>
+    <%= f.label :eye_color, class: 'active' %>
+    <%= f.select :eye_color, Person.eye_color, {}, {} %>
+  </div>
+
+  <br />
+  <div class='row' >
+  <%= f.submit 'Update', class: 'btn pull-left col s6 m2' %>
 <% end %>
 
-<%= link_to "All people", people_path %>
+<%= link_to "All people", people_path, class: 'btn pull-left col s6 m2' %>
+</div>
+
+
+
+
+
+
+

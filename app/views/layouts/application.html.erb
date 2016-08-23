@@ -3,6 +3,7 @@
   <head>
     <title>DatingApp</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -11,11 +12,18 @@
   <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-
-  <header class="navbar">
-    <%= link_to 'Home', root_path %> |
-    <%= link_to 'Search', search_path %>
-  </header>
+<nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo right">Love by RDB</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Search', search_path %> </li>
+        <% if Person.user.blank? == false %>
+        <li class="center-align"> <%= link_to 'Profile', person_path(Person.user) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 <%= yield %>
 
 </body>

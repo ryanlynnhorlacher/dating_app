@@ -7,7 +7,7 @@ class Person < ApplicationRecord
     @search_results = []
     @@user = ''
 
-    def self.search(name, age, gender, eye_color, hair_color, weight, height)
+    def self.search(name, age, eye_color, hair_color, weight, height)
         @search_results = []
         if name || age || gender || eye_color || hair_color || height || weight
              name_results = Person.all.where(name: name) if name.blank? == false
@@ -19,7 +19,6 @@ class Person < ApplicationRecord
                 end
             end
             age_results =  Person.all.where(age: ages) if age.blank? == false
-            gender_results = Person.where(gender: gender) if gender.blank? == false
             eye_color_results = Person.where(eye_color: eye_color) if eye_color.blank? == false
             hair_color_results = Person.where(hair_color: hair_color) if hair_color.blank? == false
             if weight.blank? == false
@@ -38,7 +37,7 @@ class Person < ApplicationRecord
                 end
             end
             height_results = Person.where(height: heights) if height.blank? == false
-            name_results.to_a + age_results.to_a + gender_results.to_a + eye_color_results.to_a + hair_color_results.to_a + weight_results.to_a + height_results.to_a
+            name_results.to_a + age_results.to_a + eye_color_results.to_a + hair_color_results.to_a + weight_results.to_a + height_results.to_a
         else
             []
         end
