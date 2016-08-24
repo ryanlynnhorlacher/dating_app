@@ -29,7 +29,7 @@
 
 <div class='center-align'>
 <% if Person.user.blank? == false %>
-	<% if @search.empty? == false %>
+	<% if @search %>
 	<h3>Your search results:</h3>
 		<div class='row'>
 		<% @search.each do |result| %>

@@ -38,8 +38,6 @@ class Person < ApplicationRecord
             end
             height_results = Person.where(height: heights) if height.blank? == false
             name_results.to_a + age_results.to_a + eye_color_results.to_a + hair_color_results.to_a + weight_results.to_a + height_results.to_a
-        else
-            []
         end
 
     end
