@@ -56,7 +56,7 @@ class Person < ApplicationRecord
     end
 
     def self.set_user(id)
-            @@user = Person.find(id)
+        @@user = Person.find(id)
     end
 
     def self.reset_user
